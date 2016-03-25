@@ -7,7 +7,7 @@
 
 Javascript里的许多概念和Python有区别，但很容易理解。
 
-脱离开浏览器环境后的Javascript，Node.JS能直接操作哪些底层吗？
+脱离开浏览器环境后的Node.JS，能直接操作哪些底层？
 
 用Electron框架写应用的优势和局限分别是什么？
 
