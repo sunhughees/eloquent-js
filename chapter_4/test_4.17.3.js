@@ -16,18 +16,18 @@ function arrayToList(array) {
 
 function listToArray(list) {
 	var array = [];
-	if list.rest == null:
-		array.push(list.value);
-	else {
+	while (list.rest !== null) {
 		array.push(list.value);
 		list = list.rest;
-		
 	}
-
+	array.push(list.value);
+	return array;
 }
 
 
 var x = arrayToList([1,2,3,4,5,6,7]);
+
 console.log(x.rest.rest.rest.rest.rest);
 
+console.log(listToArray(x));
 
