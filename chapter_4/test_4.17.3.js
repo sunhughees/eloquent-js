@@ -24,10 +24,30 @@ function listToArray(list) {
 	return array;
 }
 
+function prepend(x, list) {
+	var aObject = {};
+	aObject.value = x;
+	aObject.rest = list;
+	return aObject;
+}
 
-var x = arrayToList([1,2,3,4,5,6,7]);
+function nth(list, n) {
+	for (var node = list; node; node = node.rest) {
+		if (node.value == n)
+			return node;
+	}
+	return null;	
+}
 
-console.log(x.rest.rest.rest.rest.rest);
+var aList = arrayToList([1,2,3,4,5,6,7]);
 
-console.log(listToArray(x));
+console.log(aList.rest.rest.rest.rest.rest);
+
+console.log(listToArray(aList));
+
+console.log(prepend(-1, aList));
+
+console.log(nth(aList, 6));
+
+
 
