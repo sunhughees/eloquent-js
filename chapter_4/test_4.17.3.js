@@ -49,5 +49,3 @@ console.log(prepend(-1, aList));
 
 console.log(nth(aList, 6));
 
-
-
