@@ -1,5 +1,5 @@
-var object1 = {value:100};
-var object2 = {value:10};
+var object1 = {value:100, data:2};
+var object2 = {value:100, data:3};
 
 console.log(object1==object2);
 
@@ -10,43 +10,41 @@ console.log(typeof(object1)=="object");
 for (var x in object1)
 	console.log(x);
 
-function deepEqual(a,b) {
-	if (typeof(a)!=typeof(b))
-		return false;
-	else if (a==b)
-		return true;
-	else
-	{
-		for (var x in a)
-			{
-				for (var y in b)
-				{
-					if (a.x==b.x && a.y==b.y)
-						return true;
-					else
-						return false;
-				}
-			}
-
-	}
+function checkObject(a) {
+	var x = [];
+	for (var i in a)
+		x.push(i);
+	return x;
 }
 
-function deepEqual2(a,b) {
+function deepEqual(a,b) {
 	if (typeof(a)=="object" && a!=null && typeof(b)=="object" && b!=null)
 	{
-		for (x in a)
-		{
-			if (a.x == b.x)
-				return true;
-			else
+		
+		var aProps = checkObject(a);
+		var bProps = checkObject(b);
+
+		if (aProps.length != bProps.length)
+			return false;
+
+		for (var i=0; i<aProps.length; i++) {
+			var propName = aProps[i];
+
+			if(a[propName] !== b[propName])
 				return false;
-			console.log(a.x);
 		}
-			
+		return true;
 	}
 	else
 		return a==b;
 }
 
+console.log(object1[checkObject(object1)[0]]);
 
-console.log(deepEqual2(object1,object2));
+console.log(deepEqual(object1,object2));
+
+// console.log(Object.getOwnPropertyNames(object1));
+
+
+
+
