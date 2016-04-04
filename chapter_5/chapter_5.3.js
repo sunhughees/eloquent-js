@@ -43,7 +43,28 @@ function reduce(array, combine, start) {
 
 console.log(reduce([1,2,3,4], function(a, b){return a+b;}, 0));
 
+function reduceAncestors(person, f, defaultValue) {
+	function valueFor(person) {
+		if (person == null)
+			return defaultValue;
+		else
+			return f(person, valueFor(byName[person.mother]),
+							 valueFor(byName[person.father]));
+	}
+	return valueFor(person);
+}
 
+// 每个函数都有一个bind方法，该方法可以用来创建新的函数，成为绑定函数
+var theSet = ["carel Haverbeke", "Maria van Brussel",
+			  "Donald Duck"];
+
+function isInSet(set, person) {
+	return set.indexOf(person.name) > -1;
+}
+
+console.log(ancestry.filter(function(person) {
+	return isInSet(theSet, person);
+}));
 
 
 
