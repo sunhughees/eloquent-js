@@ -8,5 +8,3 @@ rabbit.speak("I'm alive.");
 var whiteRabbit = {type: "White", speak: rabbit.speak};
 
 whiteRabbit.speak("I'm alive.");
-
-

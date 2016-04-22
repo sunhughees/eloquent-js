@@ -34,9 +34,9 @@ repeat(3, function(n) {
 });
 
 function reduce(array, combine, start) {
-	 /* body... */ 
+	 /* body... */
 	 var current = start;
-	 for (var i = 0; i < array.length; i++) 
+	 for (var i = 0; i < array.length; i++)
 	 	current = combine(current, array[i]);
 	 return current;
 }
@@ -65,19 +65,3 @@ function isInSet(set, person) {
 console.log(ancestry.filter(function(person) {
 	return isInSet(theSet, person);
 }));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
